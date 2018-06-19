@@ -18,9 +18,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
+[image1]: ./data-exploration-charts/y_train_hist.jpg "Visualization"
+[image2]: ./data-exploration-charts/y_valid_hist.jpg "Visualization"
+[image3]: ./data-exploration-charts/y_test_hist.jpg "Visualization"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
 [image5]: ./examples/placeholder.png "Traffic Sign 2"
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
@@ -53,9 +53,12 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Historgram of the output labels of training, validation and test dataset. The distribution graphs helps identify classes that has less occurence in the dataset. The pedestrian class images are less represented in the training data set in comparison with say speed limit
+dataset which also results in the design model not identifying a pedestriaon sign from the web.
 
 ![alt text][image1]
+![alt text][image2]
+![alt text][image3]
 
 ### Design and Test a Model Architecture
 
