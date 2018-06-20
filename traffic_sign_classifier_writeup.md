@@ -53,8 +53,7 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Historgram of the output labels of training, validation and test dataset. The distribution graphs helps identify classes that has less occurence in the dataset. The pedestrian class images are less represented in the training data set in comparison with say speed limit
-dataset which also results in the design model not identifying a pedestriaon sign from the web.
+Historgram of the output labels of training, validation and test dataset. The distribution graphs helps identify classes that had less occurence in the dataset. In case of the pedestrian class the occurence of them in the training data set is very less in comparison with say speed limit dataset. On testing those classes images from web the netword couldn't classify the pedastrian image.
 
 ![alt text][image1]
 ![alt text][image2]
@@ -64,11 +63,11 @@ dataset which also results in the design model not identifying a pedestriaon sig
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-I just shuffled the train images and tried training the Lenet network without doing any normalization and was able to achieve 89% accuracy. After increasing the epochs to a higer value of 100 still didn't see better acuracy it was aroung 90%. 
+I just shuffled the train images and tried training the Lenet network without doing any normalization and was able to achieve 89% accuracy. Even after increasing the epochs to a higer value of 100 and tuning other hyper parameters didn't observe any improvement in accuracy. 
 
-So decided to zero center the image as suggested in the class with mean and standard deviation reduced, I tried tuning down the epoch to 20 and observed a quick convergence of the values and accuracy was around. The Lenet learned the train images quickly and the accuracy also improved to 93%. I still didn't understand all the details of numerical optimization but having smaller input values centered around 0 had a bigger impact for this project
+So decided to zero center the input images as suggested in the class with mean and standard deviation reduced, I tried tuning down the epoch to 20 and observed a quick convergence of the values and accuracy was around. The Lenet learned the train images quickly and the accuracy is also improved to 93%. I still don't understand all the details of numerical optimization but having smaller input values centered around 0 had a bigger impact for this project
 
-I decided to skip the data augumentation eventhough implementing it could have helped the network classify pedestrian image. I think training example dataset had only few pedestrian images represeted and hence the Lenet couldn't classify it correctly when tested using the image from web.
+I decided to skip the data augumentation eventhough implementing it could have helped the network classify the pedestrian image. I believe the under representation of pedestrian images in the training set be the reason for Lenet to not classify it correctly when tested using an image from web.
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
@@ -104,7 +103,12 @@ My final model consisted of the following layers:
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 
-To train the model, I used an ....
+I adapted the Lenet architecture model from the class for traffic classification
+
+Type of Optmizer: AdamOptimizer
+Batch Size: 128
+Number of epochs: 200
+learning rate: 0.01
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
