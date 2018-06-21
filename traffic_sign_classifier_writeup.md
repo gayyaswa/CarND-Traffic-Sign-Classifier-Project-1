@@ -21,20 +21,16 @@ The goals / steps of this project are the following:
 [image1]: ./data-exploration-charts/y_train_hist.jpg "Visualization"
 [image2]: ./data-exploration-charts/y_valid_hist.jpg "Visualization"
 [image3]: ./data-exploration-charts/y_test_hist.jpg "Visualization"
-[image4]: ./traffic-signs-data-test/General_Caution.png "General Caution"
+[image4]: ./traffic-signs-data-test/General_Caution.jpg "General Caution"
 [image5]: ./traffic-signs-data-test/Pedestrian.jpg "Pedestrain"
 [image6]: ./traffic-signs-data-test/Speed_Limit_30.jpg "Speed Limit 30"
 [image7]: ./traffic-signs-data-test/Speed_Limit_30.jpg "Speed Limit 50"
 [image8]: ./traffic-signs-data-test/Straight_Ahead.jpg "Straight Ahead"
 [image9]: ./traffic-signs-data-test/Yield.jpg "Yield"
 
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
 ### Writeup / README
-
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
 link to my [project code](https://github.com/gayyaswa/CarND-Traffic-Sign-Classifier-Project-1/blob/master/Traffic_Sign_Classifier.ipynb)
 
@@ -133,12 +129,10 @@ The major steps which helped in achieving the set project goal accuracy of 0.93 
 
 Here are six German traffic signs that I found on the web:
 
-![alt text][image4]
-![alt text][image5]
-![alt text][image6] 
-![alt text][image7]
-![alt text][image8]
-![alt text][image9]
+ ![image4] | ![image5]
+ --------- | ------------
+ ![image6] | ![image7] 
+![image8] | ![image9]
 
 The second pedestrian image was difficult to identify as it was under represented in the training set. Looking at the distributed graph of the classes confirms this.
 
