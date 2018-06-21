@@ -22,11 +22,11 @@ The goals / steps of this project are the following:
 [image2]: ./data-exploration-charts/y_valid_hist.jpg "Visualization"
 [image3]: ./data-exploration-charts/y_test_hist.jpg "Visualization"
 [image4]: ./traffic-signs-data-test/General_Caution.png "General Caution"
-[image5]: ./traffic-signs-data-test/Pedestrian.png "Pedestrain"
-[image6]: ./traffic-signs-data-test/Speed_Limit_30.png "Speed Limit 30"
-[image7]: ./traffic-signs-data-test/Speed_Limit_30.png "Speed Limit 50"
-[image8]: ./traffic-signs-data-test/Straight_Ahead.png "Straight Ahead"
-[image9]: ./traffic-signs-data-test/Yield.png "Yield"
+[image5]: ./traffic-signs-data-test/Pedestrian.jpg "Pedestrain"
+[image6]: ./traffic-signs-data-test/Speed_Limit_30.jpg "Speed Limit 30"
+[image7]: ./traffic-signs-data-test/Speed_Limit_30.jpg "Speed Limit 50"
+[image8]: ./traffic-signs-data-test/Straight_Ahead.jpg "Straight Ahead"
+[image9]: ./traffic-signs-data-test/Yield.jpg "Yield"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -78,11 +78,11 @@ My final model consisted of the following layers:
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 32x32x3 RGB image   							| 
-| Convolution 5x5X6     	| 1x1 stride, VALID padding, outputs 28x28x6 	|
+| Convolution filter 5x5X6     	| 1x1 stride, VALID padding, outputs 28x28x6 	|
 | RELU					|		Activation									|
 | dropout  | Keep Probability 0.75 |
 | Max pooling	 Ksize 2X2     	| 2x2 stride,  outputs 14x14x6 				|
-| Convolution 5x5x16	 | 1x1 stride, VALID padding, output 10X10X16 |      									|
+| Convolution filter 5x5x16	 | 1x1 stride, VALID padding, output 10X10X16 |      									|
 | RELU					|		Activation									|
 | dropout  | Keep Probability 0.75 |
 | Max pooling	 Ksize 2X2     	| 2x2 stride,  outputs 5x5x16 				|
@@ -133,8 +133,12 @@ The major steps which helped in achieving the set project goal accuracy of 0.93 
 
 Here are six German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]  ![alt text][image8]
+![alt text][image4]
+![alt text][image5]
+![alt text][image6] 
+![alt text][image7]
+![alt text][image8]
+![alt text][image9]
 
 The second pedestrian image was difficult to identify as it was under represented in the training set. Looking at the distributed graph of the classes confirms this.
 
