@@ -21,11 +21,12 @@ The goals / steps of this project are the following:
 [image1]: ./data-exploration-charts/y_train_hist.jpg "Visualization"
 [image2]: ./data-exploration-charts/y_valid_hist.jpg "Visualization"
 [image3]: ./data-exploration-charts/y_test_hist.jpg "Visualization"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image4]: ./traffic-signs-data-test/General_Caution.png "General Caution"
+[image5]: ./traffic-signs-data-test/Pedestrian.png "Pedestrain"
+[image6]: ./traffic-signs-data-test/Speed_Limit_30.png "Speed Limit 30"
+[image7]: ./traffic-signs-data-test/Speed_Limit_30.png "Speed Limit 50"
+[image8]: ./traffic-signs-data-test/Straight_Ahead.png "Straight Ahead"
+[image9]: ./traffic-signs-data-test/Yield.png "Yield"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -65,7 +66,7 @@ Historgram of the output labels of training, validation and test dataset. The di
 
 I just shuffled the train images and tried training the Lenet network without doing any normalization and was able to achieve 89% accuracy. Even after increasing the epochs to a higer value of 100 and tuning other hyper parameters didn't observe any improvement in accuracy. 
 
-So decided to zero center the input images as suggested in the class with mean and standard deviation reduced, I tried tuning down the epoch to 20 and observed a quick convergence of the values and accuracy was around. The Lenet learned the train images quickly and the accuracy is also improved to 93%. I still don't understand all the details of numerical optimization but having smaller input values centered around 0 had a bigger impact for this project
+So decided to zero center the input images as suggested in the class with mean and standard deviation reduced, I tried tuning down the epoch to 20 and observed a quick convergence of the values also the accuracy improved to 93%. I still don't understand all the details of numerical optimization but having smaller input values centered around 0 had a bigger impact for this project
 
 I decided to skip the data augumentation eventhough implementing it could have helped the network classify the pedestrian image. I believe the under representation of pedestrian images in the training set be the reason for Lenet to not classify it correctly when tested using an image from web.
 
@@ -103,19 +104,14 @@ My final model consisted of the following layers:
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 
-I adapted the Lenet architecture model from the class for traffic classification
+I adapted the Lenet architecture model from the class for traffic classification:
 
-Type of Optmizer: AdamOptimizer
-
-Batch Size: 128
-
-Number of epochs: 200
-
-learning rate: 0.01
-
-mu: 0.1
-
-dropout keep probablity: 0.75
+* Type of Optmizer: AdamOptimizer
+* Batch Size: 128
+* Number of epochs: 200
+* learning rate: 0.01
+* mu: 0.1
+* dropout keep probablity: 0.75
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
@@ -123,21 +119,24 @@ My final model results were:
 * validation set accuracy of 0.963
 * test set accuracy of 0.961
 
-I adapted the Lenet architecture from the class and modfied the convolution filter size and max pooling size to accomodate the traffic test input image size 32x32x3 and without any other modification was able to get validation accuracy of 0.89
+The major steps which helped in achieving the set project goal accuracy of 0.93 are highlighted below:
 
-
+* I adapted the Lenet architecture from the class and modfied the convolution filter size and max pooling size to accomodate the traffic test input image size 32x32x3 and without any other modification was able to get validation accuracy of 0.89.In the following iterative fashion tried improving the accuracy:
+* Increased the epoch to 100 and observed no improvement in the accuracy so decided to try normailzing the image as suggested in the class
+* Zero centered the input images (px - 128/128) as suggested in the class with mean and standard deviation reduced was able to observe a quick convergence of the values also the accuracy improved to 93%. I believe the Lenet was sensitive to varying intensities of the image by normalizing the image helped the network accuracy to improve
+* As suggested in the class tried adding the dropout layer to the network so that model wouldn't overfit for the trained data. I did observe adding the dropout function for fully connected layer helped imrproving the accuracy to 96%. This make sense as the number of parameters in fully conencted layer is higher than the convolution layer and those layer might have started overfitting for the input data
  
 
 ### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are six German traffic signs that I found on the web:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][image7] ![alt text][image8]  ![alt text][image8]
 
-The first image might be difficult to classify because ...
+The second pedestrian image was difficult to identify as it was under represeted in the training set. Looking at the distributed graph of the classes confirms this.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
